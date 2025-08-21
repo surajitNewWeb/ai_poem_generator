@@ -100,10 +100,10 @@
     
     <!-- Brand / About -->
     <div class="footer-brand">
-      <a href="index.php" class="brand">
-        <div class="logo"></div>
-        Poet<span style="color:var(--accent-2)">AI</span>
-      </a>
+     <a href="index.php" class="brand">
+      <img src="assets/img/logo.png" alt="Logo">
+      Poet<span style="color:var(--accent-2)">AI</span>
+    </a>
       <p>Where imagination meets technology. Turning your words into timeless poetry, instantly.</p>
     </div>
 

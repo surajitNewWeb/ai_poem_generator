@@ -10,7 +10,7 @@ if (session_status() === PHP_SESSION_NONE) {
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>AI Poem Studio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 
   <style>
     :root {
@@ -31,9 +31,9 @@ if (session_status() === PHP_SESSION_NONE) {
     .nav {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 100;
       backdrop-filter: blur(8px);
-      background: linear-gradient(to bottom, rgba(10, 12, 20, .75), rgba(10, 12, 20, .35));
+      background: linear-gradient(to bottom, rgba(10, 12, 20, .9), rgba(10, 12, 20, .6));
       border-bottom: 1px solid var(--border);
     }
     .nav-inner {
@@ -42,25 +42,24 @@ if (session_status() === PHP_SESSION_NONE) {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 18px 24px;
+      padding: 14px 24px;
     }
 
     /* Left - Brand */
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       font-weight: 800;
-      letter-spacing: .3px;
+      font-size: 1.2rem;
       text-decoration: none;
       color: var(--title);
     }
-    .brand .logo {
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
-      background: radial-gradient(circle at 30% 30%, #ffb17c, #ff7a45 45%, #c13b22 70%);
-      box-shadow: 0 0 24px rgba(255, 122, 69, .45);
+    .brand img {
+      width: 40px;   /* fixed logo size */
+      height: 40px;
+      object-fit: contain;
+      border-radius: 6px;
     }
 
     /* Middle - Nav Links */
@@ -98,7 +97,6 @@ if (session_status() === PHP_SESSION_NONE) {
       text-decoration: none;
       font-weight: 600;
       background: linear-gradient(135deg, var(--accent), var(--accent));
-  color: #fff;
       box-shadow: 0 10px 26px rgba(255, 122, 69, .35);
       transition: transform .15s ease, filter .2s ease;
     }
@@ -106,30 +104,48 @@ if (session_status() === PHP_SESSION_NONE) {
       transform: translateY(-2px);
       filter: saturate(1.1);
     }
-.btn-sign{
-   padding: 8px 17px;
+    .btn-sign {
+      padding: 8px 17px;
       border-radius: 999px;
       border: 1px solid var(--accent-2);
       background: transparent;
       color: var(--accent-2);
       text-decoration: none;
-}
-.btn-sign:hover{
-    transform: translateY(-2px);
-      filter: saturate(1.1);
+      font-weight: 600;
+    }
+    .btn-sign:hover {
       background: var(--accent-2);
-      color: rgb(255, 255, 255);
-}
+      color: #fff;
+      transform: translateY(-2px);
+      filter: saturate(1.1);
+    }
+
     /* Mobile */
     .menu-toggle {
       display: none;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       color: var(--text);
       cursor: pointer;
     }
+
     @media (max-width: 900px) {
       .nav-center {
         display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--panel);
+        padding: 20px;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-links {
+        flex-direction: column;
+        gap: 18px;
+        align-items: center;
+      }
+      .nav-center.active {
+        display: flex;
       }
       .menu-toggle {
         display: block;
@@ -144,32 +160,30 @@ if (session_status() === PHP_SESSION_NONE) {
     
     <!-- Left: Brand -->
     <a href="index.php" class="brand">
-      <div class="logo"></div>
+      <img src="assets/img/logo.png" alt="Logo">
       Poet<span style="color:var(--accent-2)">AI</span>
     </a>
 
     <!-- Middle: Nav Links -->
-    <div class="nav-center">
-      <nav class="nav-links" id="navMenu">
+    <div class="nav-center" id="navMenu">
+      <nav class="nav-links">
         <a href="index.php">Home</a>
         <a href="about.php">About</a>
         <a href="service.php">Service</a>
         <a href="generate.php">Generate</a>
         <a href="explore.php">Explore</a>
         <a href="history.php">History</a>
-      
       </nav>
     </div>
 
     <!-- Right: Auth -->
     <div class="nav-auth">
       <?php if (!empty($_SESSION['user_id'])): ?>
-        <a href="profile.php"class="btn-sign">Profile</a>
+        <a href="profile.php" class="btn-sign">Profile</a>
         <a href="logout.php" class="btn-nav">Logout</a>
       <?php else: ?>
         <a href="register.php" class="btn-sign">Sign Up</a>
         <a href="login.php" class="btn-nav">Login</a>
-        
       <?php endif; ?>
       <i class="fa-solid fa-bars menu-toggle" id="menuToggle"></i>
     </div>
@@ -185,3 +199,6 @@ if (session_status() === PHP_SESSION_NONE) {
     navMenu.classList.toggle("active");
   });
 </script>
+
+</body>
+</html>

@@ -65,15 +65,16 @@ $poems = $stmt2->fetchAll();
 
 <style>
   :root {
-    --primary: #6a11cb;
-    --secondary: #2575fc;
-    --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
     --bg: #0b0f17;
-    --card-bg: #fff;
-    --text: #222;
-    --text-muted: #666;
-    --radius: 1rem;
+    --text: #e9eefb;
+    --title: #ffffff;
+    --muted: #a0accf;
+    --accent: #ff7a45;
+    --accent-2: #00e0ff;
+    --radius: 14px;
+    --shadow: 0 6px 18px rgba(0,0,0,0.35);
   }
+
   body {
     font-family: 'Segoe UI', sans-serif;
     background: var(--bg);
@@ -81,28 +82,38 @@ $poems = $stmt2->fetchAll();
     padding: 0;
     color: var(--text);
   }
+
   .profile-container {
     max-width: 1100px;
     margin: 2rem auto;
     padding: 0 1rem;
   }
+
   .card {
-    background: var(--card-bg);
+    background: #141a29;
     border-radius: var(--radius);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    box-shadow: var(--shadow);
     padding: 1.8rem;
+    transition: transform .2s ease, box-shadow .2s ease;
   }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  }
+
   .profile-header {
     display: flex;
     align-items: center;
     gap: 1.5rem;
     margin-bottom: 2.5rem;
   }
+
   .avatar {
     width: 90px;
     height: 90px;
     border-radius: 50%;
-    background: var(--gradient);
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -111,15 +122,19 @@ $poems = $stmt2->fetchAll();
     font-weight: bold;
     flex-shrink: 0;
   }
+
   .user-info h2 {
     margin: 0;
     font-size: 1.8rem;
+    color: var(--title);
   }
+
   .user-info .email {
-    color: var(--text-muted);
+    color: var(--muted);
     font-size: .95rem;
     margin-top: .2rem;
   }
+
   .btn {
     display: inline-block;
     padding: .55rem 1.2rem;
@@ -130,58 +145,76 @@ $poems = $stmt2->fetchAll();
     transition: all 0.25s ease;
     cursor: pointer;
   }
+
   .btn-gradient {
-    background: var(--gradient);
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
     color: #fff;
     border: none;
   }
+
   .btn-gradient:hover {
     opacity: 0.9;
     transform: translateY(-2px);
   }
+
   .btn-ghost {
     background: transparent;
-    border: 1.5px solid var(--secondary);
-    color: var(--secondary);
+    border: 1.5px solid var(--accent-2);
+    color: var(--accent-2);
   }
+
   .btn-ghost:hover {
-    background: var(--secondary);
-    color: #fff;
+    background: var(--accent-2);
+    color: #0b0f17;
   }
+
   .btn.small {
     font-size: .8rem;
     padding: .4rem .9rem;
   }
+
   .poems-section h3 {
     font-size: 1.4rem;
     margin-bottom: 1.2rem;
+    color: var(--title);
   }
+
   .poems-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
     gap: 1.5rem;
   }
+
   .poem-card h4 {
     margin: 0 0 .5rem;
     font-size: 1.15rem;
+    color: var(--title);
   }
+
   .poem-card pre {
     font-size: .9rem;
-    color: var(--text-muted);
+    color: var(--muted);
     white-space: pre-wrap;
     margin-bottom: 1rem;
     line-height: 1.4;
     max-height: 140px;
     overflow: hidden;
   }
+
   .actions {
     display: flex;
     gap: .6rem;
   }
+
   .empty {
     margin-top: 1.5rem;
     text-align: center;
-    color: var(--text-muted);
+    color: var(--muted);
     font-size: .95rem;
+  }
+
+  .empty a {
+    display: inline-block;
+    margin-top: .7rem;
   }
 </style>
