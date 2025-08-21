@@ -2,10 +2,6 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-ob_start(); // start output buffering
-?>
-<?php
-if (session_status() === PHP_SESSION_NONE) session_start();
 ?>
 <!doctype html>
 <html lang="en">
@@ -13,134 +9,113 @@ if (session_status() === PHP_SESSION_NONE) session_start();
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>AI Poem Studio</title>
-  <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
   <style>
-    /* Header */
-    .site-header {
+    :root {
+      --bg: #0b0f17;
+      --panel: #131826;
+      --panel-2: #0f1422;
+      --muted: #95a0b5;
+      --text: #e9eefb;
+      --title: #ffffff;
+      --accent: #ff7a45;
+      --accent-2: #00e0ff;
+      --border: rgba(255, 255, 255, .08);
+      --radius: 16px;
+      --shadow: 0 12px 40px rgba(0, 0, 0, .45);
+    }
+
+    /* Nav */
+    .nav {
       position: sticky;
       top: 0;
-      z-index: 1000;
-      background: linear-gradient(145deg, #0097ffc4, #0f172a);
-      color: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      z-index: 50;
+      backdrop-filter: blur(8px);
+      background: linear-gradient(to bottom, rgba(10, 12, 20, .75), rgba(10, 12, 20, .35));
+      border-bottom: 1px solid var(--border);
     }
-    .header-inner {
+    .nav-inner {
       max-width: 1200px;
-      margin: 0 auto;
-      padding: 0.8rem 1rem;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    /* Branding */
-    .brand a {
+      margin: auto;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 1.4rem;
-      font-weight: 700;
+      justify-content: space-between;
+      padding: 18px 24px;
+    }
+
+    /* Left - Brand */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: .3px;
       text-decoration: none;
+      color: var(--title);
     }
     .brand .logo {
-      height: 38px;
-      width: 38px;
-      border-radius: 50%;
-      background: #fff;
-      object-fit: cover;
-      padding: 3px;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: radial-gradient(circle at 30% 30%, #ffb17c, #ff7a45 45%, #c13b22 70%);
+      box-shadow: 0 0 24px rgba(255, 122, 69, .45);
     }
-    .brand a h2 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: .5rem;
-  color: #fff;
-}
-.brand a h2 span {
-  color: #38bdf8; /* sky-blue highlight */
-}
 
-    /* Navigation Center */
+    /* Middle - Nav Links */
     .nav-center {
+      flex: 1;
       display: flex;
       justify-content: center;
-      gap: 1.2rem;
     }
-    .nav-center a {
-      color: #f3f4f6;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 0.5rem 0.9rem;
-      border-radius: 6px;
-      transition: background 0.25s ease, color 0.25s ease;
-    }
-    .nav-center a:hover {
-      background: rgba(250, 204, 21, 0.15);
-      color: #facc15;
-    }
-
-    /* Auth Buttons Right */
-    .auth-links {
+    .nav-links {
       display: flex;
-      justify-content: flex-end;
-      gap: 0.8rem;
+      gap: 26px;
     }
-    .auth-links a {
-      padding: 0.45rem 0.9rem;
-      border-radius: 6px;
-      font-weight: 500;
+    .nav-links a {
+      color: #cfd7ea;
       text-decoration: none;
-      transition: all 0.25s ease;
+      font-weight: 500;
+      font-size: .95rem;
+      transition: color .2s ease;
     }
-    .auth-links a:first-child {
-      background: transparent;
-      color: #f3f4f6;
-      border: 1px solid #475569;
-    }
-    .auth-links a:first-child:hover {
-      background: #475569;
+    .nav-links a:hover {
       color: #fff;
     }
-    .auth-links a:last-child {
-      background: transparent;
-      color: #ffffffff;
-    border: 1px solid #475569;
+
+    /* Right - Auth Buttons */
+    .nav-auth {
+      display: flex;
+      gap: 14px;
+      align-items: center;
     }
-    .auth-links a:last-child:hover {
-      background: #088fe9ff;
+    .btn-nav {
+      padding: .55rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      background: linear-gradient(135deg, #ff8f61, #ff7a45);
+      box-shadow: 0 10px 26px rgba(255, 122, 69, .35);
+      transition: transform .15s ease, filter .2s ease;
+    }
+    .btn-nav:hover {
+      transform: translateY(-2px);
+      filter: saturate(1.1);
     }
 
-    /* Mobile Menu */
+    /* Mobile */
     .menu-toggle {
       display: none;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
+      color: var(--text);
       cursor: pointer;
-      color: #ffffffff;
     }
     @media (max-width: 900px) {
-      .header-inner {
-        grid-template-columns: 1fr auto;
-      }
-      .nav-center, .auth-links {
+      .nav-center {
         display: none;
-        flex-direction: column;
-        background: #0f172a;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 220px;
-        padding: 1rem;
-        border-radius: 0 0 10px 10px;
-        box-shadow: 0 6px 12px rgba(0,0,0,0.35);
-      }
-      .nav-center a, .auth-links a {
-        display: block;
-        margin: 0.4rem 0;
-      }
-      .nav-center.active, .auth-links.active {
-        display: flex;
       }
       .menu-toggle {
         display: block;
@@ -148,49 +123,51 @@ if (session_status() === PHP_SESSION_NONE) session_start();
     }
   </style>
 </head>
-<body>
-<header class="site-header">
-  <div class="header-inner">
-    <!-- Left: Logo -->
-    <div class="brand">
-      <a href="index.php">
-        <img src="assets/img/logo.png" alt="logo" class="logo" onerror="this.style.display='none'">
-         <h2>Poet<span>AI</span></h2>
-      </a>
+<body style="background: var(--bg); color: var(--text);">
+
+<header class="nav">
+  <div class="nav-inner">
+    
+    <!-- Left: Brand -->
+    <a href="index.php" class="brand">
+      <div class="logo"></div>
+      Poet<span style="color:var(--accent-2)">AI</span>
+    </a>
+
+    <!-- Middle: Nav Links -->
+    <div class="nav-center">
+      <nav class="nav-links" id="navMenu">
+        <a href="index.php">Home</a>
+        <a href="about.php">About</a>
+        <a href="service.php">Service</a>
+        <a href="generate.php">Generate</a>
+        <a href="explore.php">Explore</a>
+        <a href="history.php">History</a>
+      
+      </nav>
     </div>
 
-    <!-- Middle: Navigation -->
-    <nav class="nav-center" id="navMenu">
-      <a href="index.php">Home</a>
-      <a href="generate.php">Generate</a>
-      <a href="explore.php">Explore</a>
-      <a href="history.php">History</a>
-      <a href="about.php">About</a>
-    </nav>
-
-    <!-- Right: Auth Links -->
-    <div class="auth-links" id="authMenu">
+    <!-- Right: Auth -->
+    <div class="nav-auth">
       <?php if (!empty($_SESSION['user_id'])): ?>
-        <a href="profile.php">Profile</a>
-        <a href="logout.php">Logout</a>
+        <a href="profile.php"class="btn-ghost">Profile</a>
+        <a href="logout.php" class="btn-nav">Logout</a>
       <?php else: ?>
-        <a href="login.php">Login</a>
-        <a href="register.php">Sign up</a>
+        <a href="register.php" class="btn-ghost">Sign Up</a>
+        <a href="login.php" class="btn-nav">Login</a>
+        
       <?php endif; ?>
+      <i class="fa-solid fa-bars menu-toggle" id="menuToggle"></i>
     </div>
 
-    <!-- Mobile Toggle -->
-    <i class="fa-solid fa-bars menu-toggle" id="menuToggle"></i>
   </div>
 </header>
 
 <script>
   const toggle = document.getElementById("menuToggle");
   const navMenu = document.getElementById("navMenu");
-  const authMenu = document.getElementById("authMenu");
 
   toggle.addEventListener("click", () => {
     navMenu.classList.toggle("active");
-    authMenu.classList.toggle("active");
   });
 </script>
