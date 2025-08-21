@@ -76,6 +76,74 @@ $isLoggedIn = isset($_SESSION['user']);
     </div>
   </div>
 
+  <!-- Testimonials -->
+  <div class="wrap testimonials">
+    <div class="section-title">
+      <div class="tag">What People Say</div>
+      <h2>Trusted by Creators Worldwide</h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <p>"This AI has completely transformed the way I create content. I can produce articles in minutes!"</p>
+        <h4>— Sarah L, Blogger</h4>
+      </div>
+      <div class="testimonial">
+        <p>"The SEO optimization feature helped my website rank higher on Google within weeks."</p>
+        <h4>— Raj P, Digital Marketer</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Easy to use, plagiarism free, and very fast. Highly recommended for content creators!"</p>
+        <h4>— Emily R, Freelancer</h4>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing -->
+  <div class="wrap pricing">
+    <div class="section-title">
+      <div class="tag">Plans</div>
+      <h2>Choose Your Plan</h2>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Starter</h3>
+        <p class="price">$9<span>/mo</span></p>
+        <ul>
+          <li>50 AI generations</li>
+          <li>Basic support</li>
+          <li>Community access</li>
+        </ul>
+        <a href="#" class="btn">Get Started</a>
+      </div>
+      <div class="price-card popular">
+        <h3>Pro</h3>
+        <p class="price">$29<span>/mo</span></p>
+        <ul>
+          <li>500 AI generations</li>
+          <li>Priority support</li>
+          <li>SEO optimization</li>
+        </ul>
+        <a href="#" class="btn">Go Pro</a>
+      </div>
+      <div class="price-card">
+        <h3>Enterprise</h3>
+        <p class="price">Custom</p>
+        <ul>
+          <li>Unlimited generations</li>
+          <li>Dedicated manager</li>
+          <li>Custom integrations</li>
+        </ul>
+        <a href="#" class="btn">Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Call to Action -->
+  <div class="wrap cta">
+    <h2>Start Writing Smarter, Today 🚀</h2>
+    <p>Join thousands of creators who save time and boost creativity with AI.</p>
+    <a href="service.php" class="btn">Get Started Free</a>
+  </div>
 
   <!-- Stats -->
   <div class="wrap stats">

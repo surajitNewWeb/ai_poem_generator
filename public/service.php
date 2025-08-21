@@ -25,8 +25,8 @@
         </div>
 
         <div class="form-actions">
-          <button class="btn-gradient" type="submit">✨ Generate Poem</button>
-          <button class="btn-ghost" type="button" onclick="fillSample()">🎨 Try Sample</button>
+          <button class="btn-gradientt" type="submit">✨ Generate Poem</button>
+          <button class="btn-ghostt" type="button" onclick="fillSample()">🎨 Try Sample</button>
         </div>
 
         <!-- Popular Tags -->
@@ -82,7 +82,7 @@
             <?= htmlspecialchars($poem['length_label'] ?? '') ?>
           </div>
           <div class="poem-actions">
-            <a class="btn-gradient" href="poem.php?id=<?= $poem['id'] ?>">Open</a>
+            <a class="btn" href="poem.php?id=<?= $poem['id'] ?>">Open</a>
             <a class="btn-ghost" href="export.php?id=<?= $poem['id'] ?>">Download</a>
           </div>
         </footer>
@@ -120,19 +120,11 @@
   --transparent:#0b0f171d;
 }
 
-/* Body */
-body {
-  background:transparent;
-  color: var(--text);
-  font-family: 'Inter', sans-serif;
-  margin: 0;
-  line-height: 1.6;
-}
 
 /* Hero Section */
 .hero-section {
   background: url('assets/img/ai2.png') center/cover no-repeat;
-  padding: 6rem 1rem;
+  padding: 2rem 1rem;
   position: relative;
 }
 .hero-overlay {
@@ -185,7 +177,7 @@ body {
 }
 
 /* Buttons */
-.btn-gradient {
+.btn-gradientt {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: #fff;
   border: none;
@@ -196,11 +188,11 @@ body {
   text-decoration: none;
   transition: transform 0.3s, opacity 0.3s;
 }
-.btn-gradient:hover {
+.btn-gradientt:hover {
   transform: translateY(-3px);
   opacity: 0.9;
 }
-.btn-ghost {
+.btn-ghostt {
   border: 1px solid var(--accent);
   background: transparent;
   color: var(--accent);
@@ -208,7 +200,7 @@ body {
   padding: 0.8rem 1.5rem;
   transition: 0.3s;
 }
-.btn-ghost:hover {
+.btn-ghostt:hover {
   background: rgba(255,255,255,0.07);
 }
 

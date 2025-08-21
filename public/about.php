@@ -42,15 +42,82 @@
     </div>
   </section>
 
-  <!-- Features -->
-  <section class="features card">
-    <h2>What Makes Us Unique</h2>
+  <!-- Core Values -->
+  <section class="values card">
+    <h2>Our Core Values</h2>
+    <div class="values-grid">
+      <div class="value-item">
+        <span>💡</span>
+        <h4>Innovation</h4>
+        <p>Pushing creative boundaries with cutting-edge AI.</p>
+      </div>
+      <div class="value-item">
+        <span>❤️</span>
+        <h4>Passion</h4>
+        <p>Every verse we generate is crafted with care.</p>
+      </div>
+      <div class="value-item">
+        <span>🌍</span>
+        <h4>Inclusivity</h4>
+        <p>Poetry for everyone, in every language.</p>
+      </div>
+      <div class="value-item">
+        <span>🤝</span>
+        <h4>Community</h4>
+        <p>We grow stronger together as creators.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="team card">
+    <h2>Meet the Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Founder">
+        <h4>Arjun Mehta</h4>
+        <p>Founder & Visionary</p>
+      </div>
+      <div class="team-member">
+        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Designer">
+        <h4>Sophia Roy</h4>
+        <p>Creative Designer</p>
+      </div>
+      <div class="team-member">
+        <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Engineer">
+        <h4>Rahul Sen</h4>
+        <p>AI Engineer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials card">
+    <h2>What Our Users Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <p>"PoetAI turned my raw emotions into beautiful poetry. Truly magical!"</p>
+        <span>- Priya Sharma</span>
+      </div>
+      <div class="testimonial">
+        <p>"As a songwriter, this has boosted my creativity like never before."</p>
+        <span>- Arman Khan</span>
+      </div>
+      <div class="testimonial">
+        <p>"Perfect for when I need instant poetic inspiration for my blog."</p>
+        <span>- Riya Das</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Future Goals -->
+  <section class="future card">
+    <h2>Our Future Goals</h2>
     <ul>
-      <li>✨ <strong>Personalized Poetry</strong> — Poems tailored to your prompts, mood, or style.</li>
-      <li>⚡ <strong>Instant Creativity</strong> — Generate beautiful verses in seconds.</li>
-      <li>🌎 <strong>Global Inspiration</strong> — Multilingual support for poetry lovers everywhere.</li>
-      <li>🎨 <strong>Modern Design</strong> — Minimalist and elegant, focusing on words that matter.</li>
-      <li>🤝 <strong>Community Driven</strong> — Share, explore, and get inspired by other poets.</li>
+      <li>🚀 Expand AI to support 50+ languages worldwide</li>
+      <li>🎤 Launch AI-powered poetry readings & voiceovers</li>
+      <li>📚 Introduce personalized poetry books on-demand</li>
+      <li>🤝 Build the world’s largest community of AI poets</li>
     </ul>
   </section>
 
@@ -71,8 +138,10 @@
 </div>
 
 <?php require_once __DIR__ . '/partials/footer.php'; ?>
+
+
 <style>
-  /* General Containers */
+/* General */
 .container {
   padding: 2rem 1rem;
   max-width: 1200px;
@@ -107,7 +176,7 @@
   font-size: 1.2rem;
 }
 .btn-accent {
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: linear-gradient(135deg, #ff7eb3, #ff758c);
   color: #fff;
   padding: 0.9rem 2rem;
   border-radius: 40px;
@@ -125,10 +194,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-}
-.about-text h2 {
-  color: var(--title);
-  margin-bottom: 1rem;
 }
 .about-text p {
   color: var(--muted);
@@ -155,32 +220,81 @@
   line-height: 1.6;
 }
 
-/* Features */
-.features h2 {
+/* Values */
+.values h2 {
   text-align: center;
+  margin-bottom: 2rem;
   color: var(--title);
-  margin-bottom: 1.5rem;
 }
-.features ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
 }
-.features li {
-  color: var(--text);
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
-  position: relative;
+.value-item {
+  text-align: center;
 }
-.features li::before {
-  content: "•";
-  color: var(--accent);
-  position: absolute;
-  left: 0;
-  top: 0;
+.value-item span {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
-/* How It Works */
+/* Team */
+.team h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  text-align: center;
+}
+.team-member img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+/* Testimonials */
+.testimonials h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.testimonial {
+  background: #fff2f7;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  font-style: italic;
+  box-shadow: var(--shadow);
+}
+
+/* Future Goals */
+.future h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.future ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 600px;
+}
+.future li {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+/* How it works */
 .how-it-works h2 {
   text-align: center;
   color: var(--accent-2);
@@ -189,11 +303,7 @@
 .how-it-works ol {
   max-width: 700px;
   margin: 0 auto;
-  color: var(--text);
   line-height: 1.6;
-}
-.how-it-works li {
-  margin-bottom: 1rem;
 }
 .how-it-works .cta {
   text-align: center;
@@ -210,5 +320,4 @@
     margin-top: 1rem;
   }
 }
-
 </style>

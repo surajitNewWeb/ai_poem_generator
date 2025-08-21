@@ -67,7 +67,6 @@ try {
     exit;
 }
 ?>
-
 <div class="container">
 
   <!-- Result Card -->
@@ -91,163 +90,215 @@ try {
 
     <!-- Actions -->
     <div class="actions">
-      <a class="btn-gradient small" href="poem_view.php?id=<?= $poemId ?>">View Full</a>
-      <a class="btn-gradient small ghost" href="poem_history.php">My Poems</a>
-      <button class="btn-gradient small" id="copyBtn" data-target="captionText">Copy Caption</button>
+      <a class="btn small" href="poem_view.php?id=<?= $poemId ?>">View Full</a>
+      <a class="btn small outline" href="poem_history.php">My Poems</a>
+      <button class="btn small" id="copyBtn" data-target="captionText">Copy Caption</button>
     </div>
 
   </div>
+
+  <!-- 🎭 Related Poems -->
+  <section class="extra-section">
+    <h3>🎭 Related Inspirations</h3>
+    <div class="related">
+      <div class="mini-card">🌌 Night Sky</div>
+      <div class="mini-card">🌹 Love & Passion</div>
+      <div class="mini-card">🌊 Ocean Dreams</div>
+      <div class="mini-card">🔥 Courage & Hope</div>
+    </div>
+  </section>
+
+  <!-- ✨ Writing Tips -->
+  <section class="extra-section">
+    <h3>🖊️ Quick Writing Tips</h3>
+    <ul class="tips">
+      <li>Keep your imagery vivid 🎨</li>
+      <li>Use emotions to connect ❤️</li>
+      <li>Experiment with rhythm 🎶</li>
+      <li>End with a powerful thought 💡</li>
+    </ul>
+  </section>
+
+  <!-- 📤 Share Section -->
+  <section class="extra-section share-box">
+    <h3>📤 Share Your Poem</h3>
+    <p>Spread your words with friends and the world.</p>
+    <div class="actions">
+      <button class="btn small">Share on Twitter</button>
+      <button class="btn small">Share on Instagram</button>
+      <button class="btn small outline">Copy Link</button>
+    </div>
+  </section>
+
 </div>
 
-<?php require_once __DIR__ . '/partials/footer.php'; ?>
-
+<!-- Styles -->
 <style>
 :root {
   --bg: #0b0f17;
   --text: #e9eefb;
-  --title: #fff;
-  --muted: #95a0b5;
+  --title: #ffffff;
+  --muted: #a0accf;
   --accent: #ff7a45;
   --accent-2: #00e0ff;
-  --radius: 18px;
-  --shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
-  --transparent: #0b0f171d;
+  --radius: 14px;
+  --shadow: 0 6px 18px rgba(0,0,0,0.35);
 }
 
-/* General */
 body {
   background: var(--bg);
   font-family: "Poppins", sans-serif;
-  margin: 0;
-  padding: 0;
   color: var(--text);
+  margin: 0;
 }
 
 .container {
-  max-width: 850px;
+  max-width: 820px;
   margin: 3rem auto;
-  padding: 0 1rem;
+  padding: 0 1.2rem;
 }
 
 /* Card */
 .result-card {
-  background: rgba(11, 15, 23, 0.7);
+  background: #131a27;
   border-radius: var(--radius);
+  padding: 2rem;
   box-shadow: var(--shadow);
-  padding: 2.5rem;
-  margin: 2rem auto;
-  color: var(--text);
-  backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  animation: fadeIn 0.8s ease;
-  transition: transform 0.3s ease;
+  animation: fadeIn 0.6s ease;
 }
 
-.result-card:hover {
-  transform: translateY(-6px);
-}
-
-/* Animation */
-@keyframes fadeIn {
-  from {opacity:0; transform: translateY(25px);}
-  to {opacity:1; transform: translateY(0);}
-}
-
-/* Header */
 .result-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.8rem;
 }
 
 .result-header h2 {
-  font-size: 2.2rem;
-  color: var(--title);
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: .5px;
+  color: var(--title);
 }
 
 .result-header .accent {
   color: var(--accent);
-  text-shadow: 0 0 10px rgba(255,122,69,0.6);
 }
 
 /* Poem Box */
 .poem-box {
-  background: linear-gradient(135deg, rgba(255,122,69,0.12), rgba(0,224,255,0.12));
+  background: #1a2233;
   border-radius: var(--radius);
-  padding: 2rem;
-  margin-bottom: 2rem;
-  font-size: 1.1rem;
-  line-height: 1.8;
+  padding: 1.6rem;
+  margin-bottom: 1.6rem;
+  font-size: 1.05rem;
+  line-height: 1.75;
   white-space: pre-wrap;
-  color: var(--text);
-  border-left: 5px solid var(--accent);
-  box-shadow: inset 0 0 25px rgba(0,224,255,0.08);
 }
 
-/* Caption Box */
+/* Caption */
 .caption-box {
-  background: rgba(255,255,255,0.06);
-  border-left: 5px solid var(--accent-2);
-  padding: 1.5rem;
+  background: #1a2233;
+  padding: 1.4rem;
   border-radius: var(--radius);
-  margin-bottom: 2.5rem;
-  box-shadow: inset 0 0 15px rgba(0,224,255,0.15);
+  margin-bottom: 2rem;
 }
 
 .caption-box h3 {
-  margin: 0 0 .8rem;
+  margin: 0 0 0.6rem;
   color: var(--accent-2);
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: .5px;
+  font-size: 1.1rem;
 }
 
 .caption-box p {
+  margin: 0;
   color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-/* Actions */
-.actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 /* Buttons */
-.btn-gradient.small {
-  padding: .8rem 1.4rem;
-  font-size: .95rem;
-  border-radius: var(--radius);
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.btn-gradient {
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: var(--title);
-  font-weight: 600;
+.btn {
+  padding: 0.7rem 1.4rem;
+  font-size: 0.95rem;
+  border-radius: var(--radius);
   border: none;
   cursor: pointer;
-  transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+  transition: all 0.25s ease;
+  font-weight: 600;
 }
 
-.btn-gradient:hover {
-  opacity: 0.95;
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 22px rgba(0, 224, 255, 0.35);
+.btn.small { font-size: 0.9rem; }
+
+.btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(0,224,255,0.25);
 }
 
-.btn-gradient.ghost {
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.btn.outline {
   background: transparent;
   border: 2px solid var(--accent);
   color: var(--accent);
-  transition: background 0.3s ease, color 0.3s ease;
+  box-shadow: none;
 }
 
-.btn-gradient.ghost:hover {
-  background: rgba(255,122,69,0.15);
-  color: var(--title);
+.btn.outline:hover {
+  background: rgba(255,122,69,0.12);
+  color: #fff;
+}
+
+/* Extra Sections */
+.extra-section {
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+  background: #131a27;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.extra-section h3 {
+  margin-bottom: 1rem;
+  color: var(--accent-2);
+}
+
+.related {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.mini-card {
+  background: #1a2233;
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--radius);
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.tips {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+
+.share-box p {
+  margin-bottom: 1rem;
+  color: var(--muted);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>
+
+<?php require_once __DIR__ . '/partials/footer.php'; ?>

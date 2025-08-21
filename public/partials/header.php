@@ -91,13 +91,14 @@ if (session_status() === PHP_SESSION_NONE) {
       align-items: center;
     }
     .btn-nav {
-      padding: .55rem 1.1rem;
+      padding: 8px 17px;
       border-radius: 999px;
       border: 1px solid var(--border);
       color: #fff;
       text-decoration: none;
       font-weight: 600;
-      background: linear-gradient(135deg, #ff8f61, #ff7a45);
+      background: linear-gradient(135deg, var(--accent), var(--accent));
+  color: #fff;
       box-shadow: 0 10px 26px rgba(255, 122, 69, .35);
       transition: transform .15s ease, filter .2s ease;
     }
@@ -105,7 +106,20 @@ if (session_status() === PHP_SESSION_NONE) {
       transform: translateY(-2px);
       filter: saturate(1.1);
     }
-
+.btn-sign{
+   padding: 8px 17px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-2);
+      background: transparent;
+      color: var(--accent-2);
+      text-decoration: none;
+}
+.btn-sign:hover{
+    transform: translateY(-2px);
+      filter: saturate(1.1);
+      background: var(--accent-2);
+      color: rgb(255, 255, 255);
+}
     /* Mobile */
     .menu-toggle {
       display: none;
@@ -150,10 +164,10 @@ if (session_status() === PHP_SESSION_NONE) {
     <!-- Right: Auth -->
     <div class="nav-auth">
       <?php if (!empty($_SESSION['user_id'])): ?>
-        <a href="profile.php"class="btn-ghost">Profile</a>
+        <a href="profile.php"class="btn-sign">Profile</a>
         <a href="logout.php" class="btn-nav">Logout</a>
       <?php else: ?>
-        <a href="register.php" class="btn-ghost">Sign Up</a>
+        <a href="register.php" class="btn-sign">Sign Up</a>
         <a href="login.php" class="btn-nav">Login</a>
         
       <?php endif; ?>
