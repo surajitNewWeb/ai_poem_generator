@@ -176,7 +176,7 @@
   font-size: 1.2rem;
 }
 .btn-accent {
-  background: linear-gradient(135deg, #ff7eb3, #ff758c);
+  background: linear-gradient(135deg, #00e0ff, #0099ffff);
   color: #fff;
   padding: 0.9rem 2rem;
   border-radius: 40px;
