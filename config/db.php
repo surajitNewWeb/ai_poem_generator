@@ -1,5 +1,8 @@
 <?php
-// config/db.php
+// ✅ Start session globally
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 $env = __DIR__ . '/.env';
 
@@ -19,10 +22,11 @@ $pass = $vars['DB_PASS'] ?? '';
 $dsn = "mysql:host={$host};dbname={$db};charset=utf8mb4";
 
 try {
+    // ✅ Create PDO connection
     $pdo = new PDO($dsn, $user, $pass, [
-        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, // Throw exceptions
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,       // Fetch as associative array
-        PDO::ATTR_EMULATE_PREPARES   => false,                  // Use real prepared statements
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, // throw exceptions
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,       // associative arrays
+        PDO::ATTR_EMULATE_PREPARES   => false,                  // use real prepared statements
     ]);
 } catch (PDOException $e) {
     die('❌ DB Connection failed: ' . $e->getMessage());

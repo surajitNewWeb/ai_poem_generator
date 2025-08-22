@@ -167,12 +167,12 @@ if (session_status() === PHP_SESSION_NONE) {
     <!-- Middle: Nav Links -->
     <div class="nav-center" id="navMenu">
       <nav class="nav-links">
-        <a href="index.php">Home</a>
-        <a href="about.php">About</a>
-        <a href="service.php">Service</a>
-        <a href="generate.php">Generate</a>
-        <a href="explore.php">Explore</a>
-        <a href="history.php">History</a>
+        <a href="./index.php">Home</a>
+        <a href="./about.php">About</a>
+        <a href="./service.php">Service</a>
+        <a href="./generate.php">Generate</a>
+        <a href="./explore.php">Explore</a>
+        <a href="./history.php">History</a>
       </nav>
     </div>
 
