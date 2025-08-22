@@ -29,6 +29,14 @@
           <button class="btn-ghostt" type="button" onclick="fillSample()">🎨 Try Sample</button>
         </div>
 
+      <div id="result" class="poem-result" style="display:none;">
+      <h2>Generated Poem</h2>
+      <pre id="poem"></pre>
+      <h3>📌 Caption:</h3>
+      <p id="caption"></p>
+      <button id="newPoemBtn" class="btn-gradientt">Generate Another Poem</button>
+      </div>
+
         <!-- Popular Tags -->
         <div class="popular-tags">
           <small>Popular themes:</small>
@@ -101,6 +109,51 @@
   function pickTag(tag) {
     document.querySelector('input[name="theme"]').value = tag;
   }
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("poetryForm");
+  const resultDiv = document.getElementById("result");
+  const poemEl = document.getElementById("poem");
+  const captionEl = document.getElementById("caption");
+  const newPoemBtn = document.getElementById("newPoemBtn");
+
+  async function generatePoem(theme, style) {
+    try {
+      const response = await fetch("public/generate.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ theme, style })
+      });
+
+      const data = await response.json();
+      if (data.poem) {
+        poemEl.textContent = data.poem;
+        captionEl.textContent = data.caption;
+        resultDiv.style.display = "block";
+      } else {
+        poemEl.textContent = "❌ No poem generated. Try again.";
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      poemEl.textContent = "⚠️ Error generating poem.";
+    }
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const theme = document.getElementById("theme").value.trim();
+    const style = document.getElementById("style").value;
+    generatePoem(theme, style);
+  });
+
+  newPoemBtn.addEventListener("click", () => {
+    const theme = document.getElementById("theme").value.trim();
+    const style = document.getElementById("style").value;
+    generatePoem(theme, style);
+  });
+});
+
 </script>
 
 <?php require_once __DIR__ . '/partials/footer.php'; ?>
