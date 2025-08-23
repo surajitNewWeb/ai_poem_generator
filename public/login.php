@@ -18,15 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($u && password_verify($password, $u['password'])) {
         $_SESSION['user_id'] = $u['id'];
         $_SESSION['username'] = $u['username'];
-        header('Location: profile.php');
+        header('Location: index.php');
         exit;
     } else {
         $err = 'Invalid credentials.';
     }
 }
-
-// Include header only after login logic
-require_once __DIR__ . '/partials/header.php';
 ?>
 
 <section class="auth-container">
@@ -49,8 +46,6 @@ require_once __DIR__ . '/partials/header.php';
     <p class="switch-auth">No account? <a href="register.php">Sign up</a></p>
   </div>
 </section>
-
-<?php require_once __DIR__ . '/partials/footer.php'; ?>
 
 <style>
 :root {

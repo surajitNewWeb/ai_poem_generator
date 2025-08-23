@@ -32,9 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
-
-// ✅ Always include header FIRST (so navbar is loaded)
-require_once __DIR__ . '/partials/header.php';
 ?>
 
 <section class="auth-container">
@@ -66,8 +63,26 @@ require_once __DIR__ . '/partials/header.php';
   </div>
 </section>
 
-<?php require_once __DIR__ . '/partials/footer.php'; ?>
 <style>
+  :root {
+  --bg: #0b0f17;
+  --text: #e9eefb;
+  --title: #fff;
+  --muted: #95a0b5;
+  --accent: #ff7a45;
+  --accent-2: #00e0ff;
+  --radius: 18px;
+  --shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+  --transparent:#0b0f171d;
+}
+
+body {
+  background: var(--bg);
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+}
   /* AUTH PAGES */
 .auth-container {
   display: flex;

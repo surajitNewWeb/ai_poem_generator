@@ -2,6 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+require_once __DIR__ . '/../../config/db.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -172,7 +173,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <a href="./service.php">Service</a>
         <a href="./generate.php">Generate</a>
         <a href="./explore.php">Explore</a>
-        <a href="./history.php">History</a>
+        <a href="./contact.php">Contact us</a>
       </nav>
     </div>
 

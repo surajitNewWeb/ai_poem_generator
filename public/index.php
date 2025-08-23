@@ -1,7 +1,14 @@
-<?php require_once __DIR__ . '/partials/header.php'; ?>
+
 <?php
-$isLoggedIn = isset($_SESSION['user']);
+require_once __DIR__ . '/../config/db.php';
+if (session_status() === PHP_SESSION_NONE) session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
 ?>
+<?php require_once __DIR__ . '/partials/header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
