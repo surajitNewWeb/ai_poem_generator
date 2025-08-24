@@ -1,4 +1,3 @@
-
 <?php
 require_once __DIR__ . '/../config/db.php';
 if (session_status() === PHP_SESSION_NONE) session_start();
@@ -37,40 +36,139 @@ if (!isset($_SESSION['user_id'])) {
         <div class="logo-badge">Fast & Secure</div>
       </div>
     </div>
+
+    <!-- 🔥 Custom Animated AI Orb -->
     <div class="hero-art">
-      <div class="disc"></div>
+      <div class="ai-visual">
+        <svg class="ai-orb" viewBox="0 0 600 600" aria-hidden="true" role="img">
+          <defs>
+            <!-- Core glow -->
+            <radialGradient id="core" cx="50%" cy="50%" r="60%">
+              <stop offset="0%"  stop-color="#00E7FF" stop-opacity="0.95"/>
+              <stop offset="45%" stop-color="#0BA9C9" stop-opacity="0.6"/>
+              <stop offset="75%" stop-color="#0B2238" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="#08131E" stop-opacity="0"/>
+            </radialGradient>
+
+            <!-- Energy sweep -->
+            <linearGradient id="ring" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stop-color="#00E7FF"/>
+              <stop offset="33%"  stop-color="#00FFA8"/>
+              <stop offset="66%"  stop-color="#FF5CF4"/>
+              <stop offset="100%" stop-color="#00E7FF"/>
+            </linearGradient>
+
+            <!-- Glow -->
+            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="18" result="b"/>
+              <feMerge>
+                <feMergeNode in="b"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+
+          <!-- luminous core -->
+          <circle cx="300" cy="300" r="220" fill="url(#core)" filter="url(#glow)"></circle>
+
+          <!-- rotating rings -->
+          <g class="ring r1">
+            <circle cx="300" cy="300" r="160" fill="none" stroke="url(#ring)" stroke-width="3" opacity="0.85"/>
+          </g>
+          <g class="ring r2">
+            <circle cx="300" cy="300" r="220" fill="none" stroke="url(#ring)" stroke-width="2"
+                    stroke-dasharray="6 14" opacity="0.5"/>
+          </g>
+          <g class="ring r3">
+            <circle cx="300" cy="300" r="110" fill="none" stroke="url(#ring)" stroke-width="2"
+                    stroke-dasharray="2 10" opacity="0.6"/>
+          </g>
+
+          <!-- orbiting dots -->
+          <g class="orbit o1" transform="translate(300 300)">
+            <circle class="dot" cx="0" cy="-160" r="5"/>
+          </g>
+          <g class="orbit o2" transform="translate(300 300)">
+            <circle class="dot" cx="0" cy="-220" r="4"/>
+          </g>
+          <g class="orbit o3" transform="translate(300 300)">
+            <circle class="dot" cx="0" cy="-110" r="3.5"/>
+          </g>
+
+          <!-- neural lines -->
+          <g class="links" opacity="0.35">
+            <line x1="170" y1="330" x2="430" y2="270" />
+            <line x1="260" y1="150" x2="380" y2="450" />
+            <line x1="180" y1="220" x2="470" y2="350" />
+          </g>
+        </svg>
+      </div>
     </div>
   </div>
 
-  <!-- Features -->
-  <div class="wrap">
-    <div class="section-title">
-      <div class="tag">Why Choose Us</div>
-      <h2>Supercharge Your Content</h2>
+<!-- Features -->
+<div class="wrap">
+  <div class="section-title">
+    <div class="tag">Why Choose Us</div>
+    <h2>Supercharge Your Content</h2>
+  </div>
+
+  <div class="features">
+    <!-- Feature 1 -->
+    <div class="feature">
+      <div class="icon">
+        <!-- Lightning Bolt SVG -->
+        <svg viewBox="0 0 24 24" class="svg-icon">
+          <path d="M13 2L3 14h7l-1 8 10-12h-7z"/>
+        </svg>
+      </div>
+      <h4>Lightning Fast</h4>
+      <p>Generate full articles in seconds with AI.</p>
     </div>
-    <div class="features">
-      <div class="feature">
-        <div class="icon"></div>
-        <h4>Lightning Fast</h4>
-        <p>Generate full articles in seconds with AI.</p>
+
+    <!-- Feature 2 -->
+    <div class="feature">
+      <div class="icon">
+        <!-- SEO Globe SVG -->
+        <svg viewBox="0 0 24 24" class="svg-icon">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/>
+        </svg>
       </div>
-      <div class="feature">
-        <div class="icon"></div>
-        <h4>SEO Optimized</h4>
-        <p>Rank higher with AI-powered SEO suggestions.</p>
+      <h4>SEO Optimized</h4>
+      <p>Rank higher with AI-powered SEO suggestions.</p>
+    </div>
+
+    <!-- Feature 3 -->
+    <div class="feature">
+      <div class="icon">
+        <!-- Shield Check SVG -->
+        <svg viewBox="0 0 24 24" class="svg-icon">
+          <path d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
       </div>
-      <div class="feature">
-        <div class="icon"></div>
-        <h4>Plagiarism Free</h4>
-        <p>Unique, original content every time.</p>
+      <h4>Plagiarism Free</h4>
+      <p>Unique, original content every time.</p>
+    </div>
+
+    <!-- Feature 4 -->
+    <div class="feature">
+      <div class="icon">
+        <!-- Smiley Face SVG -->
+        <svg viewBox="0 0 24 24" class="svg-icon">
+          <circle cx="12" cy="12" r="10"/>
+          <circle cx="9" cy="10" r="1.5"/>
+          <circle cx="15" cy="10" r="1.5"/>
+          <path d="M8 15c1.5 1 6.5 1 8 0"/>
+        </svg>
       </div>
-      <div class="feature">
-        <div class="icon"></div>
-        <h4>Easy to Use</h4>
-        <p>User-friendly dashboard for fast results.</p>
-      </div>
+      <h4>Easy to Use</h4>
+      <p>User-friendly dashboard for fast results.</p>
     </div>
   </div>
+</div>
+
 
   <!-- Split Content -->
   <div class="wrap split">

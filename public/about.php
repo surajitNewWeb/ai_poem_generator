@@ -17,7 +17,7 @@ if (!isset($_SESSION['user_id'])) {
   <section class="about-hero card">
     <h1>About <span>PoetAI</span></h1>
     <p>Where imagination meets technology. Turning your words into timeless poetry, instantly.</p>
-    <a href="create.php" class="btn-accent">Start Creating ✨</a>
+    <a href="service.php" class="btn-accent">Start Creating ✨</a>
   </section>
 
   <!-- Story -->
@@ -142,7 +142,7 @@ if (!isset($_SESSION['user_id'])) {
       <li>📤 Save, share, or download your masterpiece.</li>
     </ol>
     <div class="cta">
-      <a href="create.php" class="btn-accent">Write Your Poem Now 🚀</a>
+      <a href="service.php" class="btn-accent">Write Your Poem Now 🚀</a>
     </div>
   </section>
 
