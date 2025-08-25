@@ -3,9 +3,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
 $env = __DIR__ . '/.env';
-
 // Check if .env file exists
 if (!file_exists($env)) {
     die('❌ Missing config/.env — create it and add credentials.');
