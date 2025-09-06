@@ -1,13 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/db.php';
-if (session_status() === PHP_SESSION_NONE) session_start();
 
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit;
-}
 require_once __DIR__ . '/partials/header.php';
-require_once __DIR__ . '/../config/db.php';
 
 $q = trim($_GET['q'] ?? '');
 $rows = [];

@@ -2,7 +2,7 @@
 define("GEMINI_API_KEY", "AIzaSyBIY1gS9gC3YTI2eaV5tfn6RIAHrJHTms0"); // replace with your real key
 
 function gemini_generate($prompt) {
-    $url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" . GEMINI_API_KEY;
+    $url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" . GEMINI_API_KEY;
 
     $postData = [
         "contents" => [[
